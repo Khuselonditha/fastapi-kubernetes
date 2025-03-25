@@ -78,7 +78,7 @@ The FastAPI app provides the following endpoints:
 ## Cleanup
 To delete the Kind cluster when done:
 ```sh
-kind delete cluster
+kind delete cluster --name fastapi-cluster
 ```
 
 ## Notes
