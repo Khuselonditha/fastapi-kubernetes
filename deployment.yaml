@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-app
+  name: fastapi
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: fastapi-app
+      app: fastapi
   template:
     metadata:
       labels:
-        app: fastapi-app
+        app: fastapi
     spec:
       containers:
       - name: fastapi-container
-        image: your-dockerhub-username/fastapi-app:latest  # Use the pushed image
+        image: khuselo/my_fastapi:latest  # Your Docker image from Docker Hub
         ports:
         - containerPort: 8000
