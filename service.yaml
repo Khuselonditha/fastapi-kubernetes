@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: fastapi-service
 spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 32334  # ← Manually set the NodePort
   selector:
     app: fastapi
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8000
-  type: NodePort
