@@ -1,14 +1,17 @@
 # Use official Python image
-FROM python:3.10
+FROM python:3.10-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the application files
-COPY . .
+# Copy only the requirements file first (for caching layers)
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application files
+COPY . .
 
 # Expose the application port
 EXPOSE 8000
